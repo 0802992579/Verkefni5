@@ -11,7 +11,7 @@
             	<li><a href="order.php"
             		<?php if ($currentPage == 'order.php') {echo 'id="here"';} ?>>Order</a>
             	</li>
-            	<li><a href="contact.php">
+            	<li><a href="contact.php"
             		<?php if ($currentPage == 'contact.php') {echo 'id="here"';} ?>>Contact</a>
             	</li>
 		<li><a href="#">&nbsp;</a></li>

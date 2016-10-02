@@ -1,7 +1,7 @@
-<footer>
+﻿<footer>
        <p>&copy; 
 <?php 
-$startYear = 20015; 
+$startYear = 2015; 
 $thisYear = date('Y'); 
 if ($startYear == $thisYear) {   
  	echo $startYear;
@@ -11,3 +11,4 @@ echo "{$startYear}&ndash;{$thisYear}";
 ?> 
 Ólafur Ásdísarson</p>
 </footer>
+

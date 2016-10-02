@@ -2,8 +2,11 @@
 <html lang="is">
   
     <!-- Header -->
-    <?php include 'header.php';?>
-    <?php include 'menu.php';?>
+     <?php ob_start();
+    try {
+        include 'header.php';
+	include 'menu.php';?> 
+
     <section>
         <h2>Order form</h2>
         <p>Fill in the form to order A Thing and we will skip it to you the next working day.</p> 
@@ -44,3 +47,9 @@
    
   </body>
 </html>
+<?php } catch (Exception $e) {
+ob_end_clean();
+header('Location: http://localhost/phpsols/error.php');
+}
+ob_end_flush();
+?>

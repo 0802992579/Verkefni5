@@ -2,8 +2,10 @@
 <html lang="is">
   
     <!-- Header -->
-    <?php include 'header.php';?>
-	  <?php include 'menu.php';?>
+     <?php ob_start();
+    try {
+        include 'header.php';
+	include 'menu.php';?> 
 
     <section>
         <h2>Testimonials of happy customers</h2>
@@ -19,3 +21,9 @@
    
   </body>
 </html>
+<?php } catch (Exception $e) {
+ob_end_clean();
+header('Location: http://localhost/phpsols/error.php');
+}
+ob_end_flush();
+?>

@@ -2,9 +2,12 @@
 <html lang="is">
   
     <!-- Header -->
-    <?php include 'header.php';?>
-    <?php include 'menu.php';?>
-    <section>
+     <?php ob_start();
+    	try {
+        include 'header.php';
+	include 'menu.php';?> 
+  
+     <section>
         <h2>Contact us</h2>
         <p>Feel free to contact us if you have any questions.</p> 
        <form>
@@ -22,3 +25,9 @@
    
   </body>
 </html>
+<?php } catch (Exception $e) {
+ob_end_clean();
+header('Location: http://localhost/phpsols/error.php');
+}
+ob_end_flush();
+?>

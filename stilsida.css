@@ -1,0 +1,358 @@
+﻿html {
+  background: #466368;
+  background: radial-gradient(#264d7e, #6b6f5a);
+}
+body {
+  border-style: solid;
+  border-width: 3px;
+  margin-bottom: 20px;
+  width:100%; /*960px*/
+  margin: 0 auto;
+  line-height: 1.4;
+  background-color: #cccccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.clearfix:after
+{
+	content: " "; /*older browsers do not support empty content*/
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+
+img
+{
+ float:left;
+ margin-top: 10px;
+ margin-right: 10px;
+}
+
+
+nav {
+  width:100%;
+  padding: 0;
+  box-sizing: border-box;      /*reiknar raunstærð út frá padding og border*/ 
+  -moz-box-sizing: border-box; /*fix fyrir mozilla*/
+  max-height: 0;
+  overflow: hidden;
+  transition: all .15s ease;
+}
+
+
+
+
+.nedri
+{
+ height: 0;
+ display: none;
+}
+
+
+/*  Menu*/
+
+li {
+	
+    background-repeat: no-repeat;
+    background-position: 18.5em;
+    padding-right: .6em;
+    padding: 0;
+    background-color: black;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    font-size: 16px;
+    letter-spacing: .05em;
+    list-style-type: none;
+    height: 30px;
+    padding-top: 5px;
+    text-align:center;
+
+}
+ul {
+	border:none;
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+}
+
+li:hover {
+	background-color: grey;
+}
+li:first-child
+{
+ max-height: 0;
+ padding: 0;
+ border-top: 0;
+}
+li:last-child
+{
+ max-height: 0;
+ padding: 0;
+ border-bottom: 0;
+}
+
+li a {
+	color: white;
+	text-decoration: none; 	
+}
+
+
+
+input {
+	display: none;
+}
+
+label {
+  text-align:right;
+  padding-right: 20px;
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  color: black; 
+  background-color: grey;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+label:hover {
+  color: black;
+}
+input:checked + label {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  color: black;
+}
+
+input:checked ~ nav {
+  max-height: 500px;
+}
+
+
+footer
+{
+background-color: grey;
+ padding: 0.3em;
+}
+
+/*Stýringar á formum*/
+form {
+  margin-bottom: 22px;
+}
+
+input,
+select,
+textarea {
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color:white;
+}
+
+.contact-info label {
+  display: inline-block;
+  color: black;
+  cursor: pointer;
+  font-weight: 100;
+  text-align:left;
+  width: 100%;
+  height: 30px;
+  padding-top: 10px;
+  background-color: transparent;
+  border: 0px;
+}
+
+
+.contact-info input,
+.contact-info select,
+.contact-info textarea {
+  border: 1px solid #c6c9cc;
+  border-radius: 5px;
+  color: #888;
+  display: block;
+  margin: 5px 0 27px 0;
+  padding: 5px 8px;
+  width: 100%;
+}
+
+
+.contact-info textarea {
+  height: 78px;
+  width: 100%;
+}
+
+
+
+/*
+  ========================================
+  Min-width: 37em
+  ========================================
+*/
+@media screen and (min-width: 37em)  
+{
+
+  body
+  {
+     padding-left: 100px;
+     padding-right: 100px;
+  }
+
+  footer 
+  {
+     max-height: 50px;
+     width: 100%;
+     padding-left: 1.875em; /*30px*/
+     padding-right: 0;
+     background-color:transparent;
+     float: left;
+     text-align: center
+  }
+
+  header h1 
+  {
+     float: left;
+  }
+
+  nav 
+  {
+     max-height: 70px;
+     width:100%;
+     padding: 20;
+     box-sizing: border-box;      /*reiknar raunstærð út frá padding og border*/ 
+     -moz-box-sizing: border-box; /*fix fyrir mozilla*/
+     float: left;
+  }
+
+  .nedri
+  {
+     height: 0;
+     display: none;
+  }
+
+  /*  Menu*/
+  ul
+  {
+     padding: 15px 0 0 0;
+  }
+  label 
+  {
+     text-align:right;
+     padding-right: 20px;
+     width: 100%;
+     height: 50px;
+     padding-top: 10px;
+     cursor: pointer;
+     display: inline-block;
+     font-size: 18px;
+     color: black; 
+     background-color: grey;
+     border-top: 1px solid grey;
+     border-bottom: 1px solid grey;
+   }
+
+   label,
+   input
+   {
+     display: none;
+   }
+
+   li 
+   {
+     background-repeat: no-repeat;
+     background-position: 18.5em;
+     padding: 0;
+     background-color: black;
+     border-top: 1px solid grey;
+     border-bottom: 1px solid grey;
+     font-size: 16px;
+     letter-spacing: .05em;
+     list-style-type: none;
+     height: 30px;
+     padding-top: 5px;
+     text-align:center;
+     width:24%;
+     float: left;	
+     border-left: 1px solid grey;
+     border-right: 1px solid grey;
+   }
+
+   li:first-child
+   {
+     background-color: black;
+     width:2%;
+     max-height: 100%;
+     padding: 0;
+     border-top: 0;
+     border-radius: 4px 0 0 4px;
+
+   }
+
+   li:last-child
+   {
+     max-height: 100%;
+     background-color: black;
+     width:2%;
+     border-radius: 0 4px 4px 0;
+
+   }
+
+
+
+
+
+
+nav 
+  {
+     max-height: 70px;
+     width:100%;
+     padding: 0;
+     box-sizing: border-box;      /*reiknar raunstærð út frá padding og border*/ 
+     -moz-box-sizing: border-box; /*fix fyrir mozilla*/
+     float: left;
+ padding-bottom: 30px;
+  }
+
+li:first-child
+   {
+     background-color: transparent;
+     border-bottom: 0;
+     border-left: 0;
+   }
+
+   li:last-child
+   {
+     background-color: transparent;
+     border-top: 0;
+     border-right: 0;
+   }
+
+#here{
+ color:red;
+}
+#logo{
+ width: 100px;
+ heigth: 100px;
+}
+
+#mynd{
+  width: 200px;
+}
+
+figcaption { 
+    display: block;
+    font-style: italic;
+} 
+}
+

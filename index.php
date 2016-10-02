@@ -3,8 +3,10 @@
   
   
     <!-- Header -->
-    <?php include 'header.php';?>
-	<?php include 'menu.php';?>
+    <?php ob_start();
+    try {
+        include 'header.php';
+	include 'menu.php';?> 
 
 	<?php        
 	$images = [           
@@ -14,7 +16,7 @@
         		['file'    => 'm6a',             'caption' => 'A Thing of beauty is joy forever'],     
         		['file'    => 'm5a',             'caption' => 'A joy forever'],     
         	  ];       
-			$images.shuffle();
+			shuffle($images);
 			$selectedImage1 = "images/{$images[0]['file']}.jpg";      
   			$caption1 = $images[0]['caption'];
 			$selectedImage2 = "images/{$images[1]['file']}.jpg";      
@@ -24,12 +26,12 @@
         <h2>A Thing for you</h2>
         <p>A Thing has been very popular for three years now. It entered the market in 2013 and was immediately popular. A Thing is manifactured by The Thing Company, a company that specializes in making life easier for modern people.</p> 
         <figure>        
-      		<img src="<?= $selectedImage0; ?>" alt="Random image">           
-   				<figcaption><?= $caption0; ?></figcaption>    
-      		</figure>
-		<figure>        
       		<img src="<?= $selectedImage1; ?>" alt="Random image">           
    				<figcaption><?= $caption1; ?></figcaption>    
+      		</figure>
+		<figure>        
+      		<img src="<?= $selectedImage2; ?>" alt="Random image">           
+   				<figcaption><?= $caption2; ?></figcaption>    
       	</figure>
 
 	
@@ -58,3 +60,10 @@
    <?php include 'footer.php';?>
   </body>
 </html>
+<?php } catch (Exception $e) {
+ob_end_clean();
+header('Location: http://localhost/phpsols/error.php');
+}
+ob_end_flush();
+?>
+
