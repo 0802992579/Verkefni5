@@ -1,29 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="is">
-  <head>
-    <meta charset="utf-8">
-    <title>A Thing</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="stilsida.css">
-  </head>
-  <body>
+  
+  
     <!-- Header -->
-    <header class="clearfix">
-	<img src="logo.png" alt="A Thing" id="logo">
-        <h1>A Thing</h1>
-    </header>
-	 <?php include 'menu.php';?>
+    <?php include 'header.php';?>
+	<?php include 'menu.php';?>
+
+	<?php        
+	$images = [           
+ 				['file'    => 'm2a',             'caption' => 'Happy with A Thing'],          
+				['file'    => 'm1a',             'caption' => 'Life is better with A Thing'],
+        		['file'    => 'm3a',             'caption' => 'More Things more happiness'],     
+        		['file'    => 'm6a',             'caption' => 'A Thing of beauty is joy forever'],     
+        		['file'    => 'm5a',             'caption' => 'A joy forever'],     
+        	  ];       
+			$images.shuffle();
+			$selectedImage1 = "images/{$images[0]['file']}.jpg";      
+  			$caption1 = $images[0]['caption'];
+			$selectedImage2 = "images/{$images[1]['file']}.jpg";      
+  			$caption2 = $images[1]['caption']; ?>
+
     <section>
         <h2>A Thing for you</h2>
         <p>A Thing has been very popular for three years now. It entered the market in 2013 and was immediately popular. A Thing is manifactured by The Thing Company, a company that specializes in making life easier for modern people.</p> 
-        <figure>
-	<img src="m1a.jpg" id="mynd">
-        <figcaption>mynd1 blalla</figcaption>
-        </figure>
-	<figure>
-	<img src="m2a.jpg" id="mynd">
-        <figcaption>mynd2 blalla</figcaption>
-        </figure>
+        <figure>        
+      		<img src="<?= $selectedImage0; ?>" alt="Random image">           
+   				<figcaption><?= $caption0; ?></figcaption>    
+      		</figure>
+		<figure>        
+      		<img src="<?= $selectedImage1; ?>" alt="Random image">           
+   				<figcaption><?= $caption1; ?></figcaption>    
+      	</figure>
+
 	
 <p>A Thing has been described as the most usefull item since the ballpoint pen. Customers are universially happy with A Thing, buying more and more Things for teheir friends, family and fellow workers. Try it out - you will be amazed!</p> 
         <p>A Thing is cheap enough for everyone and so the life millions of people can be improved. Make your life better and get A Thing to day. Buy A Thing today and join a evergrowing community of Thing-user. This close-knit community has been described by members as a second family where people find true support, comfort and warmth. Don´t leave it for an another day. Buy A Thing and join a ever growing community!</p>
