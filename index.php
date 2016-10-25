@@ -35,6 +35,8 @@
         	<input type="image" name="submit" src="<?= $selectedImage1; ?>"  alt="Submit" width="100" height="100" />
    			<figcaption><?= $caption1; ?></figcaption>    
       	</figure>
+        </form>
+	<form method="GET" action="mynd.php">
 		<figure>
         <input type="hidden" name="caption" value="<?= $caption2; ?>" />
         <input type="hidden" name="description" value="<?= $description2; ?>" />
