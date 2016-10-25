@@ -1,3 +1,5 @@
+<?php ob_start( ); ?>
+<html>
 <head>
     <title>A Thing<?php if (isset($title)) {echo "&#8212;{$title}";} ?> </title>
     <link rel="stylesheet" href="style/normalize.css">
@@ -14,9 +16,10 @@
 $send = true;
 $captionErr = $imageErr = $descriptionErr = $showErr = "";
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-$caption = $_GET["caption"];
-$image = $_GET["image"];
-$description = $_GET["description"];
+  $caption = $_GET["caption"];
+  $image = $_GET["image"];
+  $description = $_GET["description"];
+  $send = false;
 }
 $show = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -46,11 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $show = clean($_POST["show"]);
   }
 }
+if ($send == true )
+  {
+    ob_end_clean( );
+    header( 'Location: http://tsuts.tskoli.is/2t/0802992579/verkefni4GSO/' );
+    exit;
+  }
 ?>
 
 <h1>Photo</h1>
 <p><span class="error">* required field.</span></p>
-<form method="POST" action="mynd1.php">
+<form method="POST" action="mynd.php">
 
 Photo: <?php echo "<input type='text' name='caption' size='35' value='" . $caption . "' />"; ?>
        <span class='error'>* <?php echo $captionErr;?></span>
@@ -72,5 +81,6 @@ Show photo?
   <br>
   <input type="Submit" value="Submit" />
 </form>
-
 </body>
+</html>
+<?php ob_end_flush( ); ?>
