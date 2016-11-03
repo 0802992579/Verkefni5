@@ -4,12 +4,8 @@
     <title>A Thing<?php if (isset($title)) {echo "&#8212;{$title}";} ?> </title>
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/stilsida.css">
-    <style>
-    .error {color: #FF0000;}
-     </style>
 </head>
 <body>
-<?php include 'process.php';?>
 
 <?php
 // define variables and set to empty values
@@ -20,63 +16,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $image = $_GET["image"];
   $description = $_GET["description"];
   $send = false;
+  $numer = $_GET["numer"];
 }
 $show = "";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $send = true;
-  if (empty($_POST["caption"])) {
-    $captionErr = 'You need to fill out Caption';
-    $send = false;
-  } else {
-    $caption = clean($_POST["caption"]);
-  }
-  if (empty($_POST["image"])) {
-    $imageErr = 'You need to fill out Image';
-    $send = false;
-  } else {
-    $image = clean($_POST["image"]);
-  }
-  if (empty($_POST["description"])) {
-    $descriptionErr = 'You need to fill out Description';
-    $send = false;
-  } else {
-    $description = clean($_POST["description"]);
-  }
-  if (empty($_POST["show"])) {
-    $showErr = 'You need to select to show or not';
-    $send = false;
-  } else {
-    $show = clean($_POST["show"]);
-  }
-}
-if ($send == true )
-  {
-    ob_end_clean( );
-    header( 'Location: http://tsuts.tskoli.is/2t/0802992579/verkefni4GSO/' );
-    exit;
-  }
+   if(isset($_COOKIE["photo"])){
+      $cookie_value = $numer . $_COOKIE["photo"];
+      if(strlen($cookie_value)>4){
+           $cookie_value = substr($cookie_value,0,4);
+      }
+   }
+   else
+   {
+     $cookie_value = $numer;
+   }
+   setcookie("photo", $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 ?>
 
 <h1>Photo</h1>
-<p><span class="error">* required field.</span></p>
-<form method="POST" action="mynd.php">
+<form method="POST" action="index.php">
 
 Photo: <?php echo "<input type='text' name='caption' size='35' value='" . $caption . "' />"; ?>
-       <span class='error'>* <?php echo $captionErr;?></span>
       <br><br>
 
 Link: <input type='text' name='image' size='35' value=' <?php echo $image;?> ' />
-      <span class='error'>* <?php echo $imageErr;?></span>
       <br><br>
 
 Description: <textarea rows='4' cols='50' name='description'> <?php echo $description;?> </textarea>
-      <span class='error'>* <?php echo $descriptionErr;?></span>
       <br><br>
-
-Show photo?
-  <input type="radio" name="show" value="yes">YES
-  <input type="radio" name="show" value="no">NO
-  <span class="error">* <?php echo $showErr;?></span>
+        <input type="hidden" name="numer" value="<?= $numer; ?>" />
   <br>
   <br>
   <input type="Submit" value="Submit" />
